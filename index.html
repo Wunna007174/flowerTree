@@ -1,125 +1,404 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Nuestro Árbol 🌺</title>
+<title>Happy 21st Birthday, Wut Yee 🎂</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Fraunces:opsz,wght@9..144,400;9..144,700&family=Public+Sans:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg1:#f7f1fc;--bg2:#ece1f7;--bg3:#e1d1f1;--accent:#7a3bb0;--ink:#3a2350;--sub:#6a5a80;--trunk:#5c3350;--ground:#2a1838;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#1d1228;--bg2:#241532;--bg3:#2c1a3e;--accent:#c79cf0;--ink:#efe3fb;--sub:#c3b0da;--trunk:#8c5a86;--ground:#e3d3f5}}
-:root[data-theme="dark"]{--bg1:#1d1228;--bg2:#241532;--bg3:#2c1a3e;--accent:#c79cf0;--ink:#efe3fb;--sub:#c3b0da;--trunk:#8c5a86;--ground:#e3d3f5}
-html{scroll-padding-top:env(safe-area-inset-top,0px);background:var(--bg2)}
-*,*::before,*::after{box-sizing:inherit}
-body{margin:0;background:linear-gradient(165deg,var(--bg1),var(--bg2) 55%,var(--bg3));color:var(--ink);font:400 1rem/1.4 'Public Sans',system-ui,sans-serif;-webkit-tap-highlight-color:transparent}
-#hero{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100svh;padding:0 12px;transition:min-height 1s ease}
-#head{max-height:0;opacity:0;overflow:hidden;text-align:center;transition:max-height 1s ease,opacity 1.2s ease}
-.on #head{opacity:1}
-h1,h2{margin:0;font:700 1.5rem/1.2 Fraunces,Georgia,serif;color:var(--accent)}
-h1{margin:28px 0 22px}
-#head p{margin:0 0 6px;font-size:.9rem;color:var(--sub)}
-.cd{display:flex;justify-content:center;gap:14px;margin-bottom:6px}
-.cd b{display:block;font:700 1.7rem/1.15 Fraunces,Georgia,serif;color:var(--accent);font-variant-numeric:tabular-nums}
-.cd i{display:block;font:400 .72rem/1 Fraunces,Georgia,serif;color:var(--sub)}
-#stage{position:relative;width:min(100%,540px);aspect-ratio:1000/1030;cursor:pointer}
-canvas{display:block;width:100%;height:100%}
-#hint{position:absolute;left:55%;top:36%;font-size:2.4rem;line-height:1;transform:rotate(-20deg);animation:tap 1.1s ease-in-out infinite;pointer-events:none;filter:drop-shadow(0 2px 2px rgba(0,0,0,.25))}
-@keyframes tap{50%{transform:translate(-6px,-10px) rotate(-20deg)}}
-#rest{padding:6px 16px 56px;text-align:center}
-#rest:not([hidden]){animation:in 1.2s both}
-@keyframes in{from{opacity:0}}
-#letter{margin:20px auto 34px;max-width:30em;font:600 clamp(1.05rem,4.9vw,1.3rem)/1.5 Caveat,cursive;white-space:pre-wrap;color:var(--ink)}
-#letter .g{color:transparent}
-.cur{display:inline-block;width:0;overflow:visible;font-style:normal;animation:bl 1s steps(1) infinite}
-@keyframes bl{50%{opacity:0}}
-:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
-@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+:root {
+  --bg1: #faf5ff;
+  --bg2: #f3e8ff;
+  --bg3: #e9d5ff;
+  --accent: #9333ea;
+  --accent-soft: #c084fc;
+  --ink: #4c1d95;
+  --sub: #7e22ce;
+  --trunk: #6b21a8;
+  --ground: #581c87;
+  --card: #ffffff;
+  --heart: #f472b6;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg1: #1e1033;
+    --bg2: #2a1748;
+    --bg3: #3b1f5e;
+    --accent: #d8b4fe;
+    --accent-soft: #c084fc;
+    --ink: #f3e8ff;
+    --sub: #e9d5ff;
+    --trunk: #c084fc;
+    --ground: #e9d5ff;
+    --card: #2e1a4a;
+    --heart: #f9a8d4;
+  }
+}
+:root[data-theme="dark"] {
+  --bg1: #1e1033;
+  --bg2: #2a1748;
+  --bg3: #3b1f5e;
+  --accent: #d8b4fe;
+  --accent-soft: #c084fc;
+  --ink: #f3e8ff;
+  --sub: #e9d5ff;
+  --trunk: #c084fc;
+  --ground: #e9d5ff;
+  --card: #2e1a4a;
+  --heart: #f9a8d4;
+}
 
-/* Lightbox for large photos */
-#lightbox{
-  position:fixed;inset:0;z-index:100;background:rgba(30,15,45,.88);
-  display:flex;align-items:center;justify-content:center;
-  opacity:0;pointer-events:none;transition:opacity .35s ease;
-  padding:20px;cursor:pointer;
+html { scroll-padding-top: env(safe-area-inset-top, 0px); background: var(--bg2); }
+*, *::before, *::after { box-sizing: inherit; }
+body {
+  margin: 0;
+  background: linear-gradient(165deg, var(--bg1), var(--bg2) 50%, var(--bg3));
+  color: var(--ink);
+  font: 400 1rem/1.5 'Public Sans', system-ui, sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
-#lightbox.show{opacity:1;pointer-events:auto}
-#lightbox .frame{
-  position:relative;max-width:min(92vw,420px);max-height:90vh;
-  background:#fff;padding:14px 14px 48px;border-radius:4px;
-  box-shadow:0 12px 40px rgba(0,0,0,.45),0 0 0 4px var(--accent);
-  transform:scale(.92);transition:transform .35s ease;
-  cursor:default;
+
+#hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+  padding: 0 12px;
+  transition: min-height 1s ease;
 }
-#lightbox.show .frame{transform:scale(1)}
-#lightbox img{
-  display:block;width:100%;height:auto;max-height:calc(90vh - 80px);
-  object-fit:contain;border-radius:2px;
+#head {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  text-align: center;
+  transition: max-height 1s ease, opacity 1.2s ease;
 }
-#lightbox .cap{
-  position:absolute;bottom:12px;left:0;right:0;text-align:center;
-  font:600 1.1rem Caveat,cursive;color:#5c3350;
+.on #head { opacity: 1; }
+h1, h2 {
+  margin: 0;
+  font-family: 'Agbalumo', system-ui, sans-serif;
+  font-weight: 400;
+  color: var(--accent);
+  letter-spacing: 0.02em;
 }
-#lightbox .close-hint{
-  position:absolute;top:-32px;right:0;color:#fff;font-size:.85rem;opacity:.8;
+h1 {
+  font-size: clamp(1.6rem, 6vw, 2.1rem);
+  margin: 24px 0 12px;
+  line-height: 1.25;
+}
+
+#stage {
+  position: relative;
+  width: min(100%, 540px);
+  aspect-ratio: 1000 / 1030;
+  cursor: pointer;
+}
+canvas { display: block; width: 100%; height: 100%; }
+#hint {
+  position: absolute;
+  left: 55%;
+  top: 36%;
+  font-size: 2.4rem;
+  line-height: 1;
+  transform: rotate(-20deg);
+  animation: tap 1.1s ease-in-out infinite;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,.25));
+}
+@keyframes tap { 50% { transform: translate(-6px, -10px) rotate(-20deg); } }
+
+/* Content after tree */
+#rest {
+  padding: 12px 16px 72px;
+  text-align: center;
+}
+#rest:not([hidden]) { animation: fadeIn 1.1s both; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } }
+
+/* Photo gallery */
+#photos {
+  max-width: 520px;
+  margin: 0 auto 36px;
+}
+#photos h2 {
+  font-size: clamp(1.25rem, 5vw, 1.5rem);
+  margin-bottom: 6px;
+}
+#photos .sub {
+  font-size: .9rem;
+  color: var(--sub);
+  margin: 0 0 22px;
+}
+.photo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px 14px;
+}
+.polaroid {
+  background: var(--card);
+  padding: 10px 10px 36px;
+  border-radius: 6px;
+  box-shadow:
+    0 4px 14px rgba(147, 51, 234, 0.18),
+    0 0 0 2px var(--accent-soft);
+  cursor: pointer;
+  transition: transform .3s ease, box-shadow .3s ease;
+  position: relative;
+  width: min(42vw, 160px);
+}
+.polaroid:nth-child(1) { transform: rotate(-3.5deg); }
+.polaroid:nth-child(2) { transform: rotate(2.8deg); }
+.polaroid:nth-child(3) { transform: rotate(-1.8deg); }
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.06);
+  box-shadow:
+    0 10px 28px rgba(147, 51, 234, 0.28),
+    0 0 0 3px var(--accent);
+  z-index: 2;
+}
+.polaroid img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  border-radius: 3px;
+  background: var(--bg2);
+}
+.polaroid .label {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: 'Agbalumo', system-ui, sans-serif;
+  font-size: 0.95rem;
+  color: var(--accent);
+}
+.polaroid::after {
+  content: '♡';
+  position: absolute;
+  top: -8px;
+  right: -6px;
+  font-size: 1.1rem;
+  color: var(--heart);
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,.15));
+}
+
+/* Letter */
+#letter-wrap {
+  max-width: 32em;
+  margin: 8px auto 0;
+  position: relative;
+  text-align: center;
+}
+#letter-wrap #letter {
+  text-align: left;
+}
+#letter {
+  margin: 0;
+  font-family: 'Agbalumo', system-ui, sans-serif;
+  font-size: clamp(1.15rem, 4.6vw, 1.4rem);
+  line-height: 1.65;
+  white-space: pre-wrap;
+  color: var(--ink);
+  background: var(--card);
+  padding: 28px 22px 32px;
+  border-radius: 18px;
+  box-shadow: 0 6px 24px rgba(147, 51, 234, 0.14);
+  border: 2px solid var(--accent-soft);
+  position: relative;
+  text-align: left;
+}
+#letter::before {
+  content: '🎂';
+  position: absolute;
+  top: -16px;
+  left: 20px;
+  font-size: 1.5rem;
+}
+#letter .g { color: transparent; }
+.cur {
+  display: inline-block;
+  width: 0;
+  overflow: visible;
+  font-style: normal;
+  animation: bl 1s steps(1) infinite;
+}
+@keyframes bl { 50% { opacity: 0; } }
+
+/* Cute speaker button */
+#speak-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 18px auto 0;
+  padding: 10px 18px;
+  background: var(--card);
+  border: 2px solid var(--accent-soft);
+  border-radius: 999px;
+  color: var(--accent);
+  font-family: 'Agbalumo', system-ui, sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(147, 51, 234, 0.15);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s;
+  user-select: none;
+}
+#speak-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(147, 51, 234, 0.25);
+}
+#speak-btn.speaking {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+#speak-btn .icon {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+#speak-btn.hidden { display: none; }
+
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+/* Lightbox */
+#lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(40, 15, 70, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .35s ease;
+  padding: 20px;
+  cursor: pointer;
+}
+#lightbox.show { opacity: 1; pointer-events: auto; }
+#lightbox .frame {
+  position: relative;
+  max-width: min(92vw, 400px);
+  max-height: 90vh;
+  background: #fff;
+  padding: 12px 12px 44px;
+  border-radius: 8px;
+  box-shadow: 0 16px 48px rgba(0,0,0,.4), 0 0 0 4px var(--accent);
+  transform: scale(.9);
+  transition: transform .35s ease;
+  cursor: default;
+}
+#lightbox.show .frame { transform: scale(1); }
+#lightbox img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: calc(90vh - 70px);
+  object-fit: contain;
+  border-radius: 4px;
+}
+#lightbox .cap {
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: 'Agbalumo', system-ui, sans-serif;
+  font-size: 1.1rem;
+  color: #6b21a8;
+}
+#lightbox .close-hint {
+  position: absolute;
+  top: -34px;
+  right: 0;
+  color: #fff;
+  font-size: .85rem;
+  opacity: .85;
 }
 </style>
 </head>
 <body>
 <main id="app">
-<div id="hero">
-  <div id="head"><h1></h1><p>Nuestro amor floreció hace…</p>
-    <div class="cd"><div><b>0</b><i>días</i></div><div><b>00</b><i>horas</i></div><div><b>00</b><i>min</i></div><div><b>00</b><i>seg</i></div></div></div>
-  <div id="stage" role="button" tabindex="0" aria-label="Toca para plantar la semilla"><canvas id="c"></canvas><span id="hint" aria-hidden="true">👆</span></div>
-</div>
-<section id="rest" hidden>
-  <div id="letter"></div>
-</section>
+  <div id="hero">
+    <div id="head">
+      <h1></h1>
+    </div>
+    <div id="stage" role="button" tabindex="0" aria-label="Tap to plant the seed">
+      <canvas id="c"></canvas>
+      <span id="hint" aria-hidden="true">👆</span>
+    </div>
+  </div>
+
+  <section id="rest" hidden>
+    <!-- Photo section -->
+    <div id="photos">
+      <h2>✨ Moments ✨</h2>
+      <p class="sub">tap a photo to see it bigger 💜</p>
+      <div class="photo-grid" id="photo-grid"></div>
+    </div>
+
+    <!-- Birthday letter + voice -->
+    <div id="letter-wrap">
+      <div id="letter"></div>
+      <button id="speak-btn" type="button" aria-label="Listen to the letter">
+        <span class="icon">🔊</span>
+        <span class="txt">Listen to the letter</span>
+      </button>
+    </div>
+  </section>
 </main>
 
-<!-- Large photo viewer (click anywhere to close) -->
+<!-- Large photo viewer -->
 <div id="lightbox" aria-hidden="true">
   <div class="frame">
-    <span class="close-hint">tocar para cerrar</span>
-    <img id="lb-img" alt="Foto ampliada">
-    <div class="cap" id="lb-cap">❤️</div>
+    <span class="close-hint">tap to close</span>
+    <img id="lb-img" alt="Enlarged photo">
+    <div class="cap" id="lb-cap">💜</div>
   </div>
 </div>
 
 <script>
 /* ============================================================
-   PERSONALIZA AQUÍ (muy fácil)
+   CUSTOMIZE HERE (super easy)
    ============================================================
-   1. Cambia el título, la fecha y la carta si quieres.
-   2. Pon tus 2 fotos 9:16 en la misma carpeta que este archivo
-      y nómbralas exactamente:  photo1.jpg   y   photo2.jpg
-      (también sirve .png o .webp)
+   1. Change the title if you want.
+   2. Put your photos in the same folder:
+        photo1.jpg , photo2.jpg  (and optional photo3.jpg)
+      Best in 9:16 (vertical) ratio.
    ============================================================ */
 const CFG = {
-  titulo: 'Nuestro Árbol',
-  desde:  '2025-09-21T00:00:00',
-  carta:  'Para la persona que amo:\n\nSi pudiera elegir un lugar seguro, sería a tu lado.\nCuanto más tiempo paso contigo, más te quiero.\n\nQue este árbol florezca cada vez que pienses en mí,\ncomo prueba de que lo nuestro sigue creciendo.'
+  titulo: 'Happy 21st Birthday,\nWut Yee 🎂',
+  carta: `Happy 21st Birthday, Wut Yee!
+
+Wishing you good health and that you stay far away from toxic people. May you achieve all your goals in life.
+
+Starting from this 21st birthday and for many more years to come, I really want to be by your side and make you proud. Please let me always be there for you, Wut Yee, through both your happiest moments and your saddest times.
+
+Please let me stay close to you, Wut Yee.
+
+I hope my gift brings you joy. 💜`
 };
 
-/* --- Tus fotos (9:16) --- 
-   Solo cambia los nombres si usas otros archivos.
-   Ejemplo: 'mis-fotos/foto-a.jpg'
-*/
+/* --- Your photos (2 or 3) --- */
 const PHOTO_SRCS = [
-  'photo1.jpg',   // ← tu primera foto (proporción 9:16)
-  'photo2.jpg'    // ← tu segunda foto (proporción 9:16)
-];
-
-/* Posición y tamaño de las fotos colgadas en el árbol
-   (coordenadas lógicas del canvas 1000×1030) */
-const PHOTO_POS = [
-  { x: 310, y: 470, w: 115, h: 204, rot: -0.22, label: '❤️' },
-  { x: 690, y: 410, w: 115, h: 204, rot:  0.18, label: '💕' }
+  { src: 'photo1.jpg', label: '✨ cute' },
+  { src: 'photo2.jpg', label: '💕 young' },
+  // { src: 'photo3.jpg', label: '🌸 always' },  // ← uncomment if you have 3 photos
 ];
 
 /* ============================================================
-   No hace falta tocar nada más abajo
+   No need to touch anything below
    ============================================================ */
 
 const $ = s => document.querySelector(s);
@@ -127,6 +406,7 @@ const cv = $('#c'), ctx = cv.getContext('2d');
 const stage = $('#stage'), hero = $('#hero'), head = $('#head');
 const rest = $('#rest'), L = $('#letter'), hint = $('#hint');
 const lightbox = $('#lightbox'), lbImg = $('#lb-img'), lbCap = $('#lb-cap');
+const photoGrid = $('#photo-grid');
 
 const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const GY = 980, BLOOM = 5400, END = 9900;
@@ -136,37 +416,70 @@ const ease = x => 1 - Math.pow(1 - x, 3);
 const cs = getComputedStyle(document.documentElement);
 const C = {
   trunk:  cs.getPropertyValue('--trunk').trim(),
-  ground: cs.getPropertyValue('--ground').trim(),
-  accent: cs.getPropertyValue('--accent').trim()
+  ground: cs.getPropertyValue('--ground').trim()
 };
 
-$('h1').textContent = '🌺 ' + CFG.titulo + ' 🌺';
-document.title = CFG.titulo + ' 🌺';
+$('h1').innerHTML = CFG.titulo.replace(/\n/g, '<br>');
+document.title = 'Happy 21st Birthday, Wut Yee 🎂';
+
+/* Build polaroid gallery */
+PHOTO_SRCS.forEach((p, i) => {
+  const el = document.createElement('div');
+  el.className = 'polaroid';
+  el.setAttribute('role', 'button');
+  el.setAttribute('tabindex', '0');
+  el.innerHTML = `
+    <img src="${p.src}" alt="Photo ${i + 1}" loading="lazy">
+    <span class="label">${p.label}</span>
+  `;
+  el.onclick = () => openLightbox(p.src, p.label);
+  el.onkeydown = e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      openLightbox(p.src, p.label);
+    }
+  };
+  photoGrid.appendChild(el);
+});
 
 /* hibiscus sprites */
 function mk(i, pale) {
   const c = document.createElement('canvas');
   c.width = c.height = 72;
   const g = c.getContext('2d');
-  const col = pale ? ['#eadcfa','#dcc6f4'] : [['#a259e0','#8a3fcc'],['#b472ea','#9a4fd8'],['#8f45d0','#7a33b8']][i % 3];
+  const col = pale
+    ? ['#eadcfa', '#dcc6f4']
+    : [['#a259e0', '#8a3fcc'], ['#b472ea', '#9a4fd8'], ['#8f45d0', '#7a33b8']][i % 3];
   g.translate(36, 36);
   for (let k = 0; k < 5; k++) {
-    g.save(); g.rotate(i * .9 + k * 1.2566);
+    g.save();
+    g.rotate(i * .9 + k * 1.2566);
     g.fillStyle = col[k % 2];
-    g.beginPath(); g.ellipse(18, 0, 17, 14.5, 0, 0, 7); g.fill();
+    g.beginPath();
+    g.ellipse(18, 0, 17, 14.5, 0, 0, 7);
+    g.fill();
     g.restore();
   }
   const r = g.createRadialGradient(0, 0, 1, 0, 0, 17);
   r.addColorStop(0, pale ? '#a97bd0' : '#2e0a4d');
   r.addColorStop(1, 'rgba(46,10,77,0)');
-  g.fillStyle = r; g.beginPath(); g.arc(0, 0, 17, 0, 7); g.fill();
+  g.fillStyle = r;
+  g.beginPath();
+  g.arc(0, 0, 17, 0, 7);
+  g.fill();
   g.rotate(i * 1.7);
   g.strokeStyle = pale ? '#f4eafd' : '#f3c9ff';
-  g.lineWidth = 2.4; g.lineCap = 'round';
-  g.beginPath(); g.moveTo(0, 0); g.quadraticCurveTo(8, -4, 15, -10 + i * .3); g.stroke();
+  g.lineWidth = 2.4;
+  g.lineCap = 'round';
+  g.beginPath();
+  g.moveTo(0, 0);
+  g.quadraticCurveTo(8, -4, 15, -10 + i * .3);
+  g.stroke();
   g.fillStyle = '#ffe79a';
   for (let k = 0; k < 4; k++) {
-    g.beginPath(); g.arc(11 + k * 1.6, -6.5 - k * 1.4 + i * .3, 1.7, 0, 7); g.fill();
+    g.beginPath();
+    g.arc(11 + k * 1.6, -6.5 - k * 1.4 + i * .3, 1.7, 0, 7);
+    g.fill();
   }
   return c;
 }
@@ -175,7 +488,8 @@ const S = [mk(0), mk(1), mk(2), mk(3), mk(4, 1)];
 /* seeded random + heart shape */
 let sd = 7;
 const R = () => {
-  sd |= 0; sd = sd + 0x6D2B79F5 | 0;
+  sd |= 0;
+  sd = sd + 0x6D2B79F5 | 0;
   let t = Math.imul(sd ^ sd >>> 15, 1 | sd);
   t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
   return ((t ^ t >>> 14) >>> 0) / 4294967296;
@@ -188,9 +502,11 @@ function inH(x, y) {
 /* tree branches */
 const B = [];
 function br(x, y, a, len, w0, d, t0, bend) {
-  const n = 12; let P;
+  const n = 17;
+  let P;
   for (let k = 0; k < 5; k++) {
-    P = []; let cx = x, cy = y, ca = a;
+    P = [];
+    let cx = x, cy = y, ca = a;
     for (let i = 0; i <= n; i++) {
       P.push([cx, cy, ca]);
       cx += Math.cos(ca) * len / n;
@@ -205,13 +521,22 @@ function br(x, y, a, len, w0, d, t0, bend) {
   B.push({ P, w0, t0, dur });
   if (d >= 4) return;
   const wAt = f => Math.max(3, w0 * (1 - .72 * Math.pow(f, .8)));
-  const sp = d === 0 ? [[.6, -1], [.72, 1], [.84, -1], [1, 0]] :
-             d === 1 ? [[.45, 1], [.75, -1], [1, 0]] :
-                       [[.6, R() < .5 ? 1 : -1], [1, 0]];
+  const sp = d === 0
+    ? [[.6, -1], [.72, 1], [.84, -1], [1, 0]]
+    : d === 1
+      ? [[.45, 1], [.75, -1], [1, 0]]
+      : [[.6, R() < .5 ? 1 : -1], [1, 0]];
   for (const [f, s] of sp) {
     const p = P[Math.round(f * n)];
-    br(p[0], p[1], p[2] + (s ? s * (.5 + R() * .55) : (R() - .5) * .7),
-       len * (.6 + R() * .16), wAt(f) * .8, d + 1, t0 + dur * f, (R() - .5) * .05);
+    br(
+      p[0], p[1],
+      p[2] + (s ? s * (.5 + R() * .55) : (R() - .5) * .7),
+      len * (.6 + R() * .16),
+      wAt(f) * .8,
+      d + 1,
+      t0 + dur * f,
+      (R() - .5) * .05
+    );
   }
 }
 br(500, GY + 4, -Math.PI / 2, 560, 100, 0, 1900, 0);
@@ -222,88 +547,30 @@ for (let n = 0; n < 780; n++) {
   let best, bd = -1;
   for (let c = 0; c < 6; c++) {
     let x, y;
-    do { x = 60 + R() * 880; y = 25 + R() * 880; } while (!inH(x, y));
+    do {
+      x = 60 + R() * 880;
+      y = 25 + R() * 880;
+    } while (!inH(x, y));
     let d = 1e9;
     for (const q of F) {
       const dx = q.x - x, dy = q.y - y;
       d = Math.min(d, dx * dx + dy * dy);
     }
-    if (d > bd) { bd = d; best = [x, y]; }
+    if (d > bd) {
+      bd = d;
+      best = [x, y];
+    }
   }
-  F.push({ x: best[0], y: best[1], r: 14 + R() * 8, k: R() < .14 ? 4 : (R() * 4 | 0), tk: 0 });
-}
-F.forEach(f => f.tk = (f.y - 25) / 855 * 2900 + R() * 1100);
-F.sort((a, b) => a.y - b.y);
-
-/* ---- Photos ---- */
-const photos = PHOTO_POS.map((p, i) => {
-  const img = new Image();
-  img.src = PHOTO_SRCS[i];
-  img.alt = 'Foto ' + (i + 1);
-  return { ...p, img, loaded: false };
-});
-photos.forEach(p => {
-  p.img.onload = () => { p.loaded = true; if (baked) bakeNow(); };
-  p.img.onerror = () => { console.warn('No se pudo cargar:', p.img.src); };
-});
-
-function drawPhoto(g, p, alpha) {
-  if (!p.loaded || alpha <= 0) return;
-  const pad = 9, bot = 22;
-  g.save();
-  g.globalAlpha = alpha;
-  g.translate(p.x, p.y);
-  g.rotate(p.rot);
-
-  // hanging string
-  g.strokeStyle = C.trunk;
-  g.lineWidth = 2.2;
-  g.lineCap = 'round';
-  g.beginPath();
-  g.moveTo(0, -p.h / 2 - pad - 4);
-  g.quadraticCurveTo(8, -p.h / 2 - pad - 35, 0, -p.h / 2 - pad - 55);
-  g.stroke();
-  g.beginPath();
-  g.arc(0, -p.h / 2 - pad - 55, 3.5, 0, 7);
-  g.fillStyle = C.trunk;
-  g.fill();
-
-  // polaroid card + soft shadow
-  g.shadowColor = 'rgba(0,0,0,0.28)';
-  g.shadowBlur = 10;
-  g.shadowOffsetY = 4;
-  g.fillStyle = '#fdf8ff';
-  g.beginPath();
-  g.roundRect(-p.w / 2 - pad, -p.h / 2 - pad, p.w + pad * 2, p.h + pad * 2 + bot, 3);
-  g.fill();
-  g.shadowColor = 'transparent';
-
-  // accent border
-  g.strokeStyle = C.accent;
-  g.lineWidth = 2.5;
-  g.stroke();
-
-  // photo
-  g.drawImage(p.img, -p.w / 2, -p.h / 2, p.w, p.h);
-
-  // cute bottom label
-  g.fillStyle = '#6a3a90';
-  g.font = '600 15px Caveat, cursive';
-  g.textAlign = 'center';
-  g.textBaseline = 'middle';
-  g.fillText(p.label, 0, p.h / 2 + pad + bot / 2 - 1);
-
-  // tiny corner decorations
-  g.fillStyle = C.accent;
-  g.globalAlpha = alpha * 0.7;
-  [[-p.w/2-2, -p.h/2-2], [p.w/2+2, -p.h/2-2], [-p.w/2-2, p.h/2+2], [p.w/2+2, p.h/2+2]].forEach(([cx, cy], i) => {
-    g.beginPath();
-    g.arc(cx, cy, 2.8, 0, 7);
-    g.fill();
+  F.push({
+    x: best[0],
+    y: best[1],
+    r: 14 + R() * 8,
+    k: R() < .14 ? 4 : (R() * 4 | 0),
+    tk: 0
   });
-
-  g.restore();
 }
+F.forEach(f => (f.tk = (f.y - 25) / 855 * 2900 + R() * 1100));
+F.sort((a, b) => a.y - b.y);
 
 /* draw helpers */
 function drawB(g, b, gr) {
@@ -348,12 +615,6 @@ function scene(g, t) {
     const r = clamp((t - b.t0) / b.dur);
     if (r > 0) drawB(g, b, ease(r));
   }
-
-  // photos appear after branches grow a bit, before full bloom
-  const photoAlpha = ease(clamp((t - 2800) / 900));
-  for (const p of photos) drawPhoto(g, p, photoAlpha);
-
-  // flowers on top → they partially cover the photos
   for (const f of F) {
     const e = clamp((t - BLOOM - f.tk) / 420);
     if (e <= 0) continue;
@@ -367,7 +628,8 @@ function scene(g, t) {
 const bk = document.createElement('canvas');
 let sc = 1, baked = false;
 function bakeNow() {
-  bk.width = cv.width; bk.height = cv.height;
+  bk.width = cv.width;
+  bk.height = cv.height;
   const g = bk.getContext('2d');
   g.setTransform(sc, 0, 0, sc, 0, 0);
   scene(g, 1e9);
@@ -394,9 +656,13 @@ function spawn(dt, t) {
   if (f.tk + BLOOM > t - 420) return;
   P.push({
     x: f.x, y: f.y, r: f.r, k: f.k,
-    vy: 90 + Math.random() * 70, vx: (Math.random() - .5) * 30,
-    rot: Math.random() * 6.28, vr: (Math.random() - .5) * 2.5,
-    ph: Math.random() * 6.28, gy: GY - f.r * .7 + Math.random() * 6, life: 0
+    vy: 90 + Math.random() * 70,
+    vx: (Math.random() - .5) * 30,
+    rot: Math.random() * 6.28,
+    vr: (Math.random() - .5) * 2.5,
+    ph: Math.random() * 6.28,
+    gy: GY - f.r * .7 + Math.random() * 6,
+    life: 0
   });
 }
 function drawP(dt, now) {
@@ -408,7 +674,10 @@ function drawP(dt, now) {
       p.rot += p.vr * dt;
     } else {
       p.life += dt;
-      if (p.life > 8) { P.splice(i, 1); continue; }
+      if (p.life > 8) {
+        P.splice(i, 1);
+        continue;
+      }
     }
     ctx.save();
     ctx.globalAlpha = p.life > 6 ? 1 - (p.life - 6) / 2 : 1;
@@ -429,12 +698,18 @@ function frame(now) {
   ctx.setTransform(1, 0, 0, 1, 0, 0);
   ctx.clearRect(0, 0, cv.width, cv.height);
   if (t >= END) {
-    if (!baked) { baked = true; bakeNow(); }
+    if (!baked) {
+      baked = true;
+      bakeNow();
+    }
     ctx.drawImage(bk, 0, 0);
   }
   ctx.setTransform(sc, 0, 0, sc, 0, 0);
   if (t < END) scene(ctx, t);
-  if (!RM && t > BLOOM + 1400) { spawn(dt, t); drawP(dt, now); }
+  if (!RM && t > BLOOM + 1400) {
+    spawn(dt, t);
+    drawP(dt, now);
+  }
   if (t >= END && !shown) reveal();
 }
 
@@ -446,47 +721,20 @@ function start() {
   stage.removeAttribute('tabindex');
   stage.style.cursor = 'default';
 }
-stage.onclick = e => {
-  if (T0 < 0) { start(); return; }
-  // after tree grown: check photo clicks
-  const hit = hitTestPhoto(e);
-  if (hit !== -1) openLightbox(hit);
-};
+stage.onclick = start;
 stage.onkeydown = e => {
   if (e.key === 'Enter' || e.key === ' ') {
     e.preventDefault();
-    if (T0 < 0) start();
+    start();
   }
 };
 setTimeout(start, 5000);
 requestAnimationFrame(frame);
 
-/* hit test for rotated photos (logical 1000×1030 space) */
-function hitTestPhoto(e) {
-  const rect = cv.getBoundingClientRect();
-  const lx = (e.clientX - rect.left) / rect.width * 1000;
-  const ly = (e.clientY - rect.top) / rect.height * 1030;
-  for (let i = photos.length - 1; i >= 0; i--) {
-    const p = photos[i];
-    if (!p.loaded) continue;
-    // inverse transform
-    const dx = lx - p.x, dy = ly - p.y;
-    const cos = Math.cos(-p.rot), sin = Math.sin(-p.rot);
-    const rx = dx * cos - dy * sin;
-    const ry = dx * sin + dy * cos;
-    const pad = 12, bot = 22;
-    if (rx >= -p.w / 2 - pad && rx <= p.w / 2 + pad &&
-        ry >= -p.h / 2 - pad && ry <= p.h / 2 + pad + bot) {
-      return i;
-    }
-  }
-  return -1;
-}
-
-function openLightbox(idx) {
-  const p = photos[idx];
-  lbImg.src = p.img.src;
-  lbCap.textContent = p.label + '  ·  tocar para cerrar';
+/* Lightbox */
+function openLightbox(src, label) {
+  lbImg.src = src;
+  lbCap.textContent = label + '  ·  tap to close';
   lightbox.classList.add('show');
   lightbox.setAttribute('aria-hidden', 'false');
 }
@@ -494,36 +742,145 @@ lightbox.onclick = () => {
   lightbox.classList.remove('show');
   lightbox.setAttribute('aria-hidden', 'true');
 };
-// prevent closing when clicking the frame itself? (optional – currently whole area closes)
 lightbox.querySelector('.frame').onclick = e => e.stopPropagation();
 
-/* countdown + typed letter */
-const cd = [...document.querySelectorAll('.cd b')];
-const SINCE = new Date(CFG.desde).getTime();
-function tick() {
-  const d = Math.max(0, Date.now() - SINCE);
-  const v = [d / 864e5 | 0, d / 36e5 % 24 | 0, d / 6e4 % 60 | 0, d / 1e3 % 60 | 0];
-  cd.forEach((e, i) => e.textContent = i ? String(v[i]).padStart(2, '0') : v[i]);
+/* ===== Voice reading – more natural human style ===== */
+const speakBtn = $('#speak-btn');
+const canSpeak = 'speechSynthesis' in window;
+let speaking = false;
+let preferredVoice = null;
+let speakQueue = [];
+
+function pickVoice() {
+  if (!canSpeak) return;
+  const voices = speechSynthesis.getVoices();
+  // Prefer the most natural-sounding English voices available
+  const preferred = [
+    // High-quality named voices
+    v => /samantha|karen|moira|fiona|victoria|zira|susan|helen|catherine/i.test(v.name) && /en/i.test(v.lang),
+    // Google / Microsoft natural voices
+    v => /google us english|google uk english female|microsoft.*(zira|aria|jenny|guy)/i.test(v.name),
+    // Any en-US / en-GB
+    v => /^en-US$/i.test(v.lang),
+    v => /^en-GB$/i.test(v.lang),
+    v => /en(-|_)?(us|gb)/i.test(v.lang),
+    v => /en/i.test(v.lang)
+  ];
+  for (const test of preferred) {
+    const found = voices.find(test);
+    if (found) {
+      preferredVoice = found;
+      return;
+    }
+  }
+  preferredVoice = voices[0] || null;
 }
+
+if (canSpeak) {
+  pickVoice();
+  speechSynthesis.onvoiceschanged = pickVoice;
+}
+
+function stopSpeaking() {
+  if (!canSpeak) return;
+  speechSynthesis.cancel();
+  speakQueue = [];
+  speaking = false;
+  speakBtn.classList.remove('speaking');
+  speakBtn.querySelector('.icon').textContent = '🔊';
+  speakBtn.querySelector('.txt').textContent = 'Listen to the letter';
+}
+
+function speakNext() {
+  if (!speakQueue.length) {
+    speaking = false;
+    speakBtn.classList.remove('speaking');
+    speakBtn.querySelector('.icon').textContent = '🔊';
+    speakBtn.querySelector('.txt').textContent = 'Listen again';
+    return;
+  }
+  const text = speakQueue.shift();
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.rate = 0.88;   // calmer, more natural pace
+  utter.pitch = 1.0;   // neutral pitch (less “robotic”)
+  utter.volume = 1;
+  if (preferredVoice) utter.voice = preferredVoice;
+  utter.lang = preferredVoice?.lang || 'en-US';
+
+  utter.onend = () => {
+    // short natural pause between sentences
+    setTimeout(speakNext, 420);
+  };
+  utter.onerror = () => {
+    speakNext();
+  };
+  speechSynthesis.speak(utter);
+}
+
+function startSpeaking() {
+  if (!canSpeak) return;
+  stopSpeaking();
+
+  // Split into natural sentences for more human pacing
+  const sentences = CFG.carta
+    .replace(/\n+/g, ' ')
+    .match(/[^.!?]+[.!?]+|[^.!?]+$/g)
+    ?.map(s => s.trim())
+    .filter(Boolean) || [CFG.carta];
+
+  speakQueue = sentences;
+  speaking = true;
+  speakBtn.classList.add('speaking');
+  speakBtn.querySelector('.icon').textContent = '⏹️';
+  speakBtn.querySelector('.txt').textContent = 'Stop reading';
+
+  speakNext();
+}
+
+if (canSpeak) {
+  speakBtn.addEventListener('click', () => {
+    if (speaking) stopSpeaking();
+    else startSpeaking();
+  });
+} else {
+  speakBtn.classList.add('hidden');
+}
+
+/* typed letter + auto voice */
 function type() {
   const T = CFG.carta;
-  if (RM) { L.textContent = T; return; }
+  if (RM) {
+    L.textContent = T;
+    // still offer voice even with reduced motion
+    if (canSpeak) setTimeout(startSpeaking, 400);
+    return;
+  }
   let i = 0;
   (function step() {
     i++;
-    L.innerHTML = T.slice(0, i) + '<i class="cur">_</i><span class="g">' + T.slice(i) + '</span>';
-    if (i < T.length) setTimeout(step, 52 + (/[.,:]/.test(T[i - 1]) ? 150 : 0));
+    L.innerHTML =
+      T.slice(0, i) +
+      '<i class="cur">_</i><span class="g">' +
+      T.slice(i) +
+      '</span>';
+    if (i < T.length) {
+      setTimeout(step, 48 + (/[.,!?]/.test(T[i - 1]) ? 180 : 0));
+    }
   })();
+
+  // Start reading shortly after typing begins so it feels like the letter is being read to her
+  if (canSpeak) {
+    setTimeout(startSpeaking, 600);
+  }
 }
+
 function reveal() {
   shown = true;
   const hh = head.scrollHeight;
   head.style.maxHeight = hh + 'px';
-  hero.style.minHeight = (stage.offsetHeight + hh) + 'px';
+  hero.style.minHeight = stage.offsetHeight + hh + 'px';
   document.getElementById('app').classList.add('on');
   rest.hidden = false;
-  tick();
-  setInterval(tick, 1000);
   type();
 }
 </script>
